@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema ABC - Módulo de Inventario</title>
+    <style>
+        body, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .menu ul {
+            text-align: center;
+        }
+
+        .menu ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .menu ul li:last-child {
+            margin-right: 0;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #ff6600;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+        }
+        #gestion-peps, #kardex-productos {
+            display: none;
+        }
+        .subseccion-link {
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: underline;
+        }
+        .subseccion-link:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="modulo-inventario.html">Módulo de Inventario</a></li>
+                <li><a href="gestion-facturas.html">Gestión de Facturas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="gestion-peps">
+            <h2>Gestión de inventario mediante PEPS</h2>
+        </section>
+        <section id="kardex-productos">
+            <h2>Kardex de productos</h2>
+        </section>
+    </main>
+    <script>
+        const gestionPepsSection = document.getElementById('gestion-peps');
+        const kardexProductosSection = document.getElementById('kardex-productos');
+
+        const gestionPepsLink = document.createElement('a');
+        gestionPepsLink.textContent = 'Ver Gestión PEPS';
+        gestionPepsLink.className = 'subseccion-link';
+        gestionPepsLink.addEventListener('click', () => {
+            gestionPepsSection.style.display = 'block';
+            kardexProductosSection.style.display = 'none';
+        });
+        const kardexProductosLink = document.createElement('a');
+        kardexProductosLink.textContent = 'Ver Kardex de Productos';
+        kardexProductosLink.className = 'subseccion-link';
+        kardexProductosLink.addEventListener('click', () => {
+            gestionPepsSection.style.display = 'none';
+            kardexProductosSection.style.display = 'block';
+        });
+        gestionPepsSection.insertAdjacentElement('beforebegin', gestionPepsLink);
+        kardexProductosSection.insertAdjacentElement('beforebegin', kardexProductosLink);
+    </script>
+</body>
+</html>
