@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema ABC - Módulo de Inventario</title>
+    <title>Sistema ABC - Gestión de Facturas</title>
     <style>
         body, ul, li {
             margin: 0;
@@ -46,7 +46,7 @@
             background-color: #f4f4f4;
             border: 1px solid #ccc;
         }
-        #gestion-peps, #kardex-productos {
+        #consumidor-final, #credito-fiscal, #retencion-iva {
             display: none;
         }
         .subseccion-link {
@@ -54,6 +54,7 @@
             color: #007bff;
             text-decoration: underline;
         }
+
         .subseccion-link:hover {
             color: #0056b3;
         }
@@ -75,33 +76,51 @@
         </nav>
     </header>
     <main>
-        <section id="gestion-peps">
-            <h2>Gestión de inventario mediante PEPS</h2>
+        <section id="consumidor-final">
+            <h2>Consumidor final</h2>
         </section>
-        <section id="kardex-productos">
-            <h2>Kardex de productos</h2>
+        <section id="credito-fiscal">
+            <h2>Crédito fiscal</h2>
+        </section>
+        <section id="retencion-iva">
+            <h2>Retención de IVA</h2>
         </section>
     </main>
     <script>
-        const gestionPepsSection = document.getElementById('gestion-peps');
-        const kardexProductosSection = document.getElementById('kardex-productos');
+        const consumidorFinalSection = document.getElementById('consumidor-final');
+        const creditoFiscalSection = document.getElementById('credito-fiscal');
+        const retencionIvaSection = document.getElementById('retencion-iva');
 
-        const gestionPepsLink = document.createElement('a');
-        gestionPepsLink.textContent = 'Ver Gestión PEPS';
-        gestionPepsLink.className = 'subseccion-link';
-        gestionPepsLink.addEventListener('click', () => {
-            gestionPepsSection.style.display = 'block';
-            kardexProductosSection.style.display = 'none';
+        const consumidorFinalLink = document.createElement('a');
+        consumidorFinalLink.textContent = 'Ver Consumidor final';
+        consumidorFinalLink.className = 'subseccion-link';
+        consumidorFinalLink.addEventListener('click', () => {
+            consumidorFinalSection.style.display = 'block';
+            creditoFiscalSection.style.display = 'none';
+            retencionIvaSection.style.display = 'none';
         });
-        const kardexProductosLink = document.createElement('a');
-        kardexProductosLink.textContent = 'Ver Kardex de Productos';
-        kardexProductosLink.className = 'subseccion-link';
-        kardexProductosLink.addEventListener('click', () => {
-            gestionPepsSection.style.display = 'none';
-            kardexProductosSection.style.display = 'block';
+
+        const creditoFiscalLink = document.createElement('a');
+        creditoFiscalLink.textContent = 'Ver Crédito fiscal';
+        creditoFiscalLink.className = 'subseccion-link';
+        creditoFiscalLink.addEventListener('click', () => {
+            consumidorFinalSection.style.display = 'none';
+            creditoFiscalSection.style.display = 'block';
+            retencionIvaSection.style.display = 'none';
         });
-        gestionPepsSection.insertAdjacentElement('beforebegin', gestionPepsLink);
-        kardexProductosSection.insertAdjacentElement('beforebegin', kardexProductosLink);
+
+        const retencionIvaLink = document.createElement('a');
+        retencionIvaLink.textContent = 'Ver Retención de IVA';
+        retencionIvaLink.className = 'subseccion-link';
+        retencionIvaLink.addEventListener('click', () => {
+            consumidorFinalSection.style.display = 'none';
+            creditoFiscalSection.style.display = 'none';
+            retencionIvaSection.style.display = 'block';
+        });
+
+        consumidorFinalSection.insertAdjacentElement('beforebegin', consumidorFinalLink);
+        creditoFiscalSection.insertAdjacentElement('beforebegin', creditoFiscalLink);
+        retencionIvaSection.insertAdjacentElement('beforebegin', retencionIvaLink);
     </script>
 </body>
 </html>
